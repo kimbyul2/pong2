@@ -115,7 +115,9 @@ class Simulate:
     # MEMBER 1
     def update_obj(self):
         # update position of all simulation objects using obj.goto(posx, posy)
-        # ...
+        self.ball.goto(self.pong.ball.pos[0], self.pong.ball.pos[1])
+        self.playerL.goto(self.pong.playerL.pos[0], self.pong.playerL.pos[1])
+        self.playerR.goto(self.pong.playerR.pos[0], self.pong.playerR.pos[1])
         self.window.update()
 
 
@@ -126,7 +128,7 @@ sim = Simulate(pong)
 while True:
     game_over = False
     # update ball_pos in the pong object
-    # ...
+    pong.update_ball_pos()
     sim.update_obj()
     # check ball_pos and decide game_over
     # ...
