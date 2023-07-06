@@ -57,7 +57,12 @@ class Pong:
         # let's say: diff = difference between ball.pos and  player.pos
         # if diff_x is below 20 and diff_y is below 70 (for either player), consider this a player-hit
         # if a player-hit occurs, return True and reverse the ball direction along x-axis.
-        # ...
+        if abs(self.ball.pos[0] - self.playerL.pos[0]) <=20 and abs(self.ball.pos[1] - self.playerL.pos[1]) <=70:
+            self.ball.dx *= -1
+            return True
+        if abs(self.ball.pos[0] - self.playerR.pos[0]) <=20 and abs(self.ball.pos[1] - self.playerR.pos[1]) <=70:
+            self.ball.dx *= -1
+            return True
         return False
 
     # MEMBER 2
@@ -73,7 +78,8 @@ class Pong:
     def process_border_hit(self):
         # border-hit occurs when ball moves beyond 250 (or -250) along y-axis
         # if a border-hit is detected, return True and reverse the ball direction along y-axis
-        # ...
+        if abs(self.ball.pos[1]) >=250:
+            self.ball.dy *= -1
         return False
 
 
