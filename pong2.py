@@ -40,7 +40,7 @@ class Pong:
         # update ball.pos following dx, dy
         #수정된 부분
         self.ball.pos[0] += self.ball.dx
-        self.ball pos[1] += self.ball.dy
+        self.ball.pos[1] += self.ball.dy
         writer.clear(); writer.write("ball_pos"+str(self.ball.pos))
 
     def check_ball_pos(self):
@@ -70,7 +70,7 @@ class Pong:
         # ball falls, if ball goes beyond 350 (or -350) along x-axis
         # if a fall is detected, return True
         # 수정된 부분
-        if abs(self.ballpos[0]) >=350:
+        if abs(self.ball.pos[0]) >=350:
             return True
         return False
 
@@ -135,7 +135,7 @@ while True:
     pong.update_ball_pos()
     sim.update_obj()
     # check ball_pos and decide game_over
-    # ...
+    game_over = pong.check_ball_pos()
     if game_over:
         break
 
