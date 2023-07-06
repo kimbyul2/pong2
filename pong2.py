@@ -74,7 +74,8 @@ class Pong:
     def process_border_hit(self):
         # border-hit occurs when ball moves beyond 250 (or -250) along y-axis
         # if a border-hit is detected, return True and reverse the ball direction along y-axis
-        # ...
+        if abs(self.ball.pos[1]) >=250:
+            self.ball.dy *= -1
         return False
 
 
